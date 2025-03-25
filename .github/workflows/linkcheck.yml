@@ -1,0 +1,14 @@
+name: Check Markdown Links
+
+on: [push, pull_request]
+
+jobs:
+  linkcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm install -g markdown-link-check
+      - run: find . -name "*.md" -exec markdown-link-check {} \;
