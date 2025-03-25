@@ -1,0 +1,20 @@
+name: Update TOC
+
+on: [push]
+
+jobs:
+  toc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm install -g markdown-toc
+      - run: markdown-toc -i README.md
+      - run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add README.md
+          git commit -m "Update TOC" || echo "No changes"
+          git push
