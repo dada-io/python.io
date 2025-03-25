@@ -1,4 +1,4 @@
-# Python Operators: A Comprehensive Guide 🐍✨  
+# Python Operators🐍✨  
 
 Operators are special symbols in Python that perform operations on variables and values. They are the building blocks of Python programming, helping you manipulate data and control program flow.  
 
